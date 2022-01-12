@@ -16,11 +16,13 @@ class MainActivity : AppCompatActivity() {
         binding= DataBindingUtil.setContentView(this,R.layout.activity_main)
         mainViewModel= ViewModelProvider(this).get(MainViewModel::class.java)
 
-        mainViewModel.quoteLiveData.observe(this, Observer {
-            binding.textTv.text= it
-        })
-        binding.buttonUpdate.setOnClickListener{
+        val quoteObj= Quote("Do, or do not. There is no try.","Yoda")
+        binding.quote= quoteObj
+        /*mainViewModel.quoteLiveData.observe(this, Observer {
+            binding.quoteTv.text= it
+        })*/
+       /* binding.buttonUpdate.setOnClickListener{
             mainViewModel.updateQuote()
-        }
+        }*/
     }
 }
